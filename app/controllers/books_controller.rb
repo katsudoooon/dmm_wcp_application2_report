@@ -1,10 +1,15 @@
 class BooksController < ApplicationController
 
-  def create
+  def index
+    @books = Book.all
+    @book = Book.new
 
   end
 
-  def index
+  def create
+    book = Book.new(book_params)
+    book.save
+    redirect_to user_path(current_user.id)
 
   end
 
