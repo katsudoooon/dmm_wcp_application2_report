@@ -3,7 +3,7 @@
 
     <div class = "col-md-3">
       <%= render 'users/profile', users: @users %>
-      <%= render 'books/book_create', books: @books %>
+      <%= render 'books/book_create', book: @book_create %>
     </div>
 
     <div class = "col-md-8 offset-md-1">
@@ -16,7 +16,7 @@
             <td><%= @book.body %></td>
             <% if @book.user == current_user %>
               <td><%= link_to "Edit", edit_book_path(@book.id), class: 'btn btn-sm btn-success' %></td>
-              <td><%= link_to "Destroy", book_path, method: :delete, class: 'btn btn-sm btn-danger' %></td>
+              <td><%= link_to "Destroy", book_path, method: :delete, data: { confirm: "本当に消しますか？" }, class: 'btn btn-sm btn-danger' %></td>
             <% end %>
           </tr>
         </tbody>
