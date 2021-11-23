@@ -1,5 +1,5 @@
 <h2>User info</h2>
-<!--ここにプロフィール画像-->
+<%= attachment_image_tag user, :profile_image %>
 <table class = "table">
   <tbody>
     <tr></tr>
@@ -10,7 +10,7 @@
     </tr>
     <tr>
       <th>introduction</th>
-      <th><!--ここに紹介文--></th>
+      <th><%= user.introduction %></th>
     </tr>
 
     </tbody>
