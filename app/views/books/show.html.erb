@@ -14,7 +14,12 @@
       <table class = "table">
         <tbody>
           <tr>
-            <td><!-- ここにユーザー画像とユーザーページリンク --></td>
+            <td>
+              <%= link_to user_path(@book.user.id) do %>
+                <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "img/no_image.jpg" %>
+                <br><%= @book.user.name %>
+              <% end %>
+            </td>
             <td><%= link_to @book.title, book_path(@book.id) %></td>
             <td><%= @book.body %></td>
             <% if @book.user == current_user %>
