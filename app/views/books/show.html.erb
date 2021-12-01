@@ -5,7 +5,7 @@
   <div class = "row">
 
     <div class = "col-md-3">
-      <%= render 'users/profile', user: current_user %>
+      <%= render 'users/profile', user: @book.user %>
       <%= render 'books/book_create', book: @book_create %>
     </div>
 
