@@ -1,0 +1,35 @@
+<%= flash[:book_create] %>
+<%= flash[:book_update] %>
+
+<div class = "container">
+  <div class = "row">
+
+    <div class = "col-md-3">
+      <%= render 'users/profile', user: @book.user %>
+      <%= render 'books/book_create', book: @book_create %>
+    </div>
+
+    <div class = "col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class = "table">
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to user_path(@book.user.id) do %>
+                <%= attachment_image_tag @book.user, :profile_image, :fill, 50, 50, fallback: "img/no_image.jpg" %>
+                <br><%= @book.user.name %>
+              <% end %>
+            </td>
+            <td><%= link_to @book.title, book_path(@book.id) %></td>
+            <td><%= @book.body %></td>
+            <% if @book.user == current_user %>
+              <td><%= link_to "Edit", edit_book_path(@book.id), class: 'btn btn-sm btn-success' %></td>
+              <td><%= link_to "Destroy", book_path, method: :delete, data: { confirm: "本当に消しますか？" }, class: 'btn btn-sm btn-danger' %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
